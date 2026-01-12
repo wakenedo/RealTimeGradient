@@ -9,8 +9,7 @@
     "build": "vite build"
   },
   "files": [
-    "dist",
-    "styles_modules"
+    "dist"
   ],
   "keywords": [
     "background",
