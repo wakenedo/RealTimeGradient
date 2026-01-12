@@ -231,8 +231,8 @@ declare module "dynamic-gradient" {
   export default DynamicGradient;
 }
 ```
+````
 
 ## 📄 License
 
 MIT © 2025 — @wakenedo
-````
