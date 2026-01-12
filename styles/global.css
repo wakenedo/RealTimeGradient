@@ -22,16 +22,3 @@ body.loaded {
   min-height: 100vh;
   overflow: hidden;
 }
-
-.watermark-container {
-  z-index: 10;
-  padding: 1px;
-}
-
-.watermark {
-  position: fixed;
-  z-index: 10;
-  text-decoration: none;
-  color: whitesmoke;
-  font-weight: 200;
-}

@@ -1,6 +1,6 @@
 // Load an HTML component into a container
 async function loadComponent(id, file) {
-  const res = await fetch(`./js/RTG/src/components/${file}`);
+  const res = await fetch(`./demo/js/RTG/src/components/${file}`);
   const html = await res.text();
   document.getElementById(id).innerHTML = html;
 }

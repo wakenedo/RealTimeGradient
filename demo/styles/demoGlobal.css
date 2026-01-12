@@ -102,11 +102,3 @@ body.loaded {
 .options-inner-panel {
   z-index: 20;
 }
-
-.watermark {
-  position: fixed;
-  z-index: 10;
-  text-decoration: none;
-  color: whitesmoke;
-  font-weight: 200;
-}

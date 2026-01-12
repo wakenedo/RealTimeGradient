@@ -29,11 +29,6 @@ body {
   text-transform: uppercase;
 }
 
-.watermark {
-  text-decoration: none;
-  color: #edeafd;
-}
-
 .logo-RTG a {
   padding-top: 5px;
   display: flex;
