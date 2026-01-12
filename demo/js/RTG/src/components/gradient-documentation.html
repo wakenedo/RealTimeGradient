@@ -1,0 +1,532 @@
+<section id="gradient-documentation">
+  <!-- Features Cards -->
+  <div class="documentation-features-section-container">
+    <div class="documentation-features-section-title-container">
+      <span id="gradient-title-3" class="features-section-title"
+        >Documentation</span
+      >
+    </div>
+    <div id="documentation-divider" class="title-divider"></div>
+    <div class="full-documentation-content">
+      <section id="UMD-section" class="documentation-section">
+        <!-- UMD Import -->
+<div class="documentation-section-subtitle-container">
+  <span class="documentation-features-section-title">
+    UMD Import
+  </span>
+</div>
+<div class="documentation-section-content">
+  <div class="documentation-intro-text-container">
+    <span class="features-intro-text">
+      If you don’t use a bundler, you can include <code>dynamic-gradient</code> 
+      directly via a script tag. The library will be available on 
+      <code>window.DynamicGradient</code>.
+    </span>
+  </div>
+  
+  <div class="documentation-code-wrapper">
+    <div class="documentation-code-container">
+      <div class="line-numbers"></div>
+      <button class="copy-btn">Copy</button>
+      <pre><code class="language-html">
+  <span class="code-line">&lt;<span class="token tag">script</span> <span class="token attr-name">src</span>=<span class="token string">"dist/dynamic-gradient.umd.js"</span>&gt;&lt;/<span class="token tag">script</span>&gt;</span>
+  <span class="code-line"> <span class="token tag">&lt;script&gt;</span></span>
+  <span class="code-line"> <span class="token keyword">const</span><span class="token constant">gradient</span> = <span class="token class-name">DynamicGradient</span>.<span class="token method">init</span>(<span class="token string">"#hero"</span>,{</span>
+  <span class="code-line">    <span class="token property">type</span>:<span class="token string">"linear"</span>,</span>
+  <span class="code-line">    <span class="token property">colors</span>: [<span class="token string">"#ff7e5f"</span>,<span class="token string">"#feb47b"</span>],</span>
+  <span class="code-line">  });</span>
+  <span class="code-line"> &lt;/<span class="token tag">script</span>&gt;</span>
+      </code></pre>
+    </div>
+</div>
+</div>
+
+      </section>
+
+      <section id="Basic-usage-section" class="documentation-section">
+        <div class="documentation-section-subtitle-container">
+          <span class="documentation-features-section-title">Basic Usage</span>
+        </div>
+        <div class="documentation-section-content">
+          <div class="documentation-intro-text-container">
+            <span class="features-intro-text">
+              Initialize a real-time gradient on a DOM element by calling
+              <code>DynamicGradient.init()</code> with configuration options.
+            </span>
+          </div>
+
+          <!-- HTML -->
+          <div class="documentation-code-wrapper">
+            <div class="documentation-code-container">
+              <!-- Gutter (will be filled by JS) -->
+              <div class="line-numbers" aria-hidden="true"></div>
+
+              <!-- Code area -->
+              <pre><code class="language-html">
+          <span class="code-line">&lt;<span class="token tag">div</span><span class="token attr-name"> id</span>=<span class="token attr-value">"hero"</span> <span class="token attr-name">style</span>=<span class="token attr-value">"height: 300px;"</span>&gt;&lt;/<span class="token tag">div</span>&gt;</span></span>
+          </code></pre>
+
+              <!-- Copy button -->
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+          </div>
+        
+        
+        <div class="documentation-code-wrapper">
+            <div class="documentation-code-container">
+              <div class="line-numbers" aria-hidden="true"></div>
+              <pre><code class="language-js">
+  <span class="code-line"><span class="token keyword">import</span> <span class="token class-name">DynamicGradient</span> <span class="token keyword">from</span><span class="token string">"dynamic-gradient"</span>;</span>
+
+  <span class="code-line"><span class="token keyword">const</span> <span class="token constant">gradient</span> = <span class="token class-name">DynamicGradient</span>.<span class="token method">init</span>(<span class="token string">"#hero"</span>, {</span>
+  <span class="code-line">  <span class="token property">type</span>: <span class="token string">"linear"</span>,</span>
+  <span class="code-line">  <span class="token property">direction</span>: <span class="token string">"to right"</span>,</span>
+  <span class="code-line">  <span class="token property">colors</span>: [<span class="token string">"#ff7e5f"</span>, <span class="token string">"#feb47b"</span>],</span>
+  <span class="code-line">  <span class="token property">transitionDuration</span>: <span class="token number">1500</span>,</span>
+  <span class="code-line">  <span class="token property">schedule</span>: [</span>
+  <span class="code-line">    { <span class="token property">time</span>: <span class="token string">"06:00"</span>, <span class="token property">colors</span>: [<span class="token string">"#7fff00ff"</span>, <span class="token string">"#ffb347ff"</span>, <span class="token string">"#ff69b4ff"</span>] },</span>
+  <span class="code-line">    { <span class="token property">time</span>: <span class="token string">"18:00"</span>, <span class="token property">colors</span>: [<span class="token string">"#ff4500ff"</span>, <span class="token string">"#9370dbff"</span>, <span class="token string">"#4682b4ff"</span>] },</span>
+  <span class="code-line">    { <span class="token property">time</span>: <span class="token string">"00:00"</span>, <span class="token property">colors</span>: [<span class="token string">"#ffff54ff"</span>, <span class="token string">"#ff7f50ff"</span>, <span class="token string">"#daa520ff"</span>] }</span>
+  <span class="code-line">  ]</span>
+  <span class="code-line">});</span>
+</code></pre>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+          </div>
+          </div>
+      </section>
+
+      <section id="Schedulling-section" class="documentation-section">
+        <div class="documentation-section-subtitle-container">
+          <span class="documentation-features-section-title">
+            Scheduling
+          </span>
+        </div>
+        <div class="documentation-section-content">
+          <div class="documentation-intro-text-container">
+            <span class="features-intro-text">
+              You can define a <code>schedule</code> of time-based gradients that 
+              change automatically throughout the day. The last matching entry before 
+              or equal to the current time is applied. If the time is earlier than 
+              the first entry, the schedule wraps around to the last one.
+            </span>
+          </div>
+          
+          <div class="documentation-code-wrapper">
+            <div class="documentation-code-container">
+              <div class="line-numbers"></div>
+              <button class="copy-btn">Copy</button>
+              <pre><code class="language-js">
+          <span class="code-line"> <span class="token keyword">const</span> <span class="token constant">gradient</span> = <span class="token class-name">DynamicGradient</span>.<span class="token method">init</span>(<span class="token string">"#hero"</span>, {</span>
+          <span class="code-line"> <span class="token property">type</span>:<span class="token string">"linear"</span>,</span>
+          <span class="code-line"> <span class="token property">colors</span>:[<span class="token string">"#ff7f50ff"</span>,<span class="token string">"#6a5acdff"</span>],</span>
+          <span class="code-line"> <span class="token property">schedule</span>: [</span>
+          <span class="code-line">    { <span class="token property">time</span>: <span class="token string">"06:00"</span>, <span class="token property">colors</span>: [<span class="token string"></span>,<span class="token string">"#ffb347ff"</span>]},</span>
+          <span class="code-line">    { <span class="token property">time</span>: <span class="token string">"18:00"</span>, <span class="token property">colors</span>: [<span class="token string">"#ff4500ff"</span>,<span class="token string">"#9370dbff"</span>]},</span>
+          <span class="code-line">    { <span class="token property">time</span>: <span class="token string">"00:00"</span>, <span class="token property">colors</span>: [<span class="token string">"#ffff54ff"</span>,<span class="token string">"#ff7f50ff"</span>]},</span>
+          <span class="code-line">  ],</span>
+          <span class="code-line">});</span>
+              </code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="Effects-methods-section" class="documentation-section" >
+        <div class="documentation-section-subtitle-container">
+            <span class="documentation-features-section-title">Effect Methods</span>
+          </div>
+          <div class="documentation-section-content">
+            
+            <!-- stopEffects -->
+<div class="documentation-intro-text-container">
+  <span class="features-intro-text-section-title">Stop Effects:</span>
+  <span class="features-intro-text">
+    Immediately stops all running effects.
+  </span>
+</div>
+<div class="documentation-code-wrapper">
+  <div class="documentation-code-container">
+    <div class="line-numbers"></div>
+    <button class="copy-btn">Copy</button>
+    <pre><code class="language-js">
+                  <span class="code-line"><span class="token constant">gradient</span>.<span class="token method">stopEffects</span>();</span>
+                </code></pre>
+  </div>
+</div>
+
+<!-- triggerEffectHue -->
+<div class="documentation-intro-text-container">
+  <span class="features-intro-text-section-title">Trigger Effect Hue:</span>
+  <span class="features-intro-text">
+    Overlay a temporary effect by hue or custom colors.
+  </span>
+</div>
+<div class="documentation-code-wrapper">
+  <div class="documentation-code-container">
+    <div class="line-numbers"></div>
+    <button class="copy-btn">Copy</button>
+    <pre><code class="language-js">
+  <span class="code-line"><span class="token constant">gradient</span>.<span class="token method">triggerEffect</span>({</span>
+  <span class="code-line">  <span class="token property">hue</span>: <span class="token string">"gold"</span>,</span>
+  <span class="code-line">  <span class="token property">duration</span>: <span class="token number">2000</span>,</span>
+  <span class="code-line">});</span>
+</code></pre>
+  </div>
+</div>
+<!-- triggerEffectHue -->
+<div class="documentation-intro-text-container">
+  <span class="features-intro-text-section-title">Trigger Effect Mutate:</span>
+  <span class="features-intro-text">
+    Overlay a temporary effect by mutating gradient using custom colors.
+  </span>
+</div>
+<div class="documentation-code-wrapper">
+  <div class="documentation-code-container">
+    <div class="line-numbers"></div>
+    <button class="copy-btn">Copy</button>
+    <pre><code class="language-js">
+  <span class="code-line"><span class="token constant">gradient</span>.<span class="token method">triggerEffect</span>({</span>
+  <span class="code-line">  <span class="token property">applyColors</span>: [<span class="token string">"#9370db"</span>, <span class="token string">"#4682b4"</span>],</span>
+  <span class="code-line">  <span class="token property">duration</span>: <span class="token number">2000</span>,</span>
+  <span class="code-line">});</span>
+</code></pre>
+  </div>
+</div>
+
+<!-- persistEffect -->
+<div class="documentation-intro-text-container">
+  <span class="features-intro-text-section-title">Persist Effect:</span>
+  <span class="features-intro-text">
+    Smoothly transition to a new gradient that stays applied.
+  </span>
+</div>
+<div class="documentation-code-wrapper">
+  <div class="documentation-code-container">
+    <div class="line-numbers"></div>
+    <button class="copy-btn">Copy</button>
+    <pre><code class="language-js">
+                    <span class="code-line"><span class="token constant">gradient</span>.<span class="token method">persistEffect</span>([<span class="token string">"#9370db"</span>, <span class="token string">"#4682b4"</span>], <span class="token number">2000</span>);</span>
+                  </code></pre>
+  </div>
+</div>
+      </section>
+          <!-- ================= Presets ================= -->
+      <section id="Presets-section" class="documentation-section">
+        <div class="documentation-section-subtitle-container">
+          <span class="documentation-features-section-title">Hue Presets</span>
+        </div>
+            <div class="documentation-section-content">
+              <div class="documentation-intro-text-container">
+                <span class="features-intro-text">
+                  Some ready-to-use gradient palettes.
+                </span>
+              </div>
+              <div class="documentation-code-wrapper">
+                <div class="documentation-code-container">
+                  <div class="line-numbers" aria-hidden="true"></div>
+                  <pre><code class="language-js">
+  <span class="code-line"><span class="token keyword">const</span> <span class="token constant">hues</span> = {</span>
+  <span class="code-line">  <span class="token property">sunset</span>: [<span class="token string">"#ff7e5f"</span>, <span class="token string">"#feb47b"</span>],</span>
+  <span class="code-line">  <span class="token property">ocean</span>: [<span class="token string">"#00c6ff"</span>, <span class="token string">"#0072ff"</span>],</span>
+  <span class="code-line">  <span class="token property">forest</span>: [<span class="token string">"#11998e"</span>, <span class="token string">"#38ef7d"</span>],</span>
+  <span class="code-line">  <span class="token property">fire</span>: [<span class="token string">"#ff512f"</span>, <span class="token string">"#dd2476"</span>],</span>
+  <span class="code-line">  <span class="token property">mono</span>: [<span class="token string">"#ffffff"</span>, <span class="token string">"#000000"</span>],</span>
+  <span class="code-line">};</span>
+</code></pre>
+                    <button class="copy-btn" aria-label="Copy code">Copy</button>
+                  </div>
+              </div>
+              <div class="documentation-code-wrapper">
+                <div class="documentation-code-container">
+                  <div class="line-numbers" aria-hidden="true"></div>
+                    <pre><code class="language-js">
+  <span class="code-line"><span class="token variable">gradient</span>.<span class="token method">setGradient</span>(<span class="token punctuation">{</span> <span class="token property">colors</span>: <span class="token variable">hues</span>.<span class="token property">forest</span> <span class="token punctuation">}</span>);</span>
+</code></pre>
+                    <button class="copy-btn" aria-label="Copy code">Copy</button>
+                </div>
+              </div>
+      </section>
+
+      <section id="Gradient-text-section" class="documentation-section">
+  <div class="documentation-section-subtitle-container">
+    <span class="documentation-features-section-title">Gradient Text</span>
+  </div>
+  <div class="documentation-section-content">
+    <div class="documentation-intro-text-container">
+      <span class="features-intro-text">
+        Apply gradients to text by enabling the <code>textClip</code> option.
+      </span>
+    </div>
+
+    <div class="documentation-code-wrapper">
+      <div class="documentation-code-container">
+        <div class="line-numbers" aria-hidden="true"></div>
+        <pre><code class="language-html">
+  <span class="code-line"><span class="token tag">&lt;<span class="token name">h1</span></span> <span class="token attr-name">id</span>=<span class="token attr-value">"gradient-text"</span><span class="token tag">&gt;</span>Gradient Text<span class="token tag">&lt;/<span class="token name">h1</span>&gt;</span></span>
+</code></pre>
+        <button class="copy-btn" aria-label="Copy code">Copy</button>
+      </div>
+    </div>
+
+    <div class="documentation-code-wrapper">
+      <div class="documentation-code-container">
+        <div class="line-numbers" aria-hidden="true"></div>
+        <pre><code class="language-js">
+  <span class="code-line"><span class="token keyword">const</span> <span class="token constant">gradient</span> = <span class="token class-name">DynamicGradient</span>.<span class="token method">init</span>(<span class="token string">"#gradient-text"</span>, {</span>
+  <span class="code-line">  <span class="token property">colors</span>: [<span class="token string">"#ff7e5f"</span>, <span class="token string">"#feb47b"</span>],</span>
+  <span class="code-line">  <span class="token property">textClip</span>: <span class="token boolean">true</span>,</span>
+  <span class="code-line">});</span>
+</code></pre>
+        <button class="copy-btn" aria-label="Copy code">Copy</button>
+      </div>
+    </div>
+  </div>
+      </section>
+
+      <section id="React-example-section" class="documentation-section">
+        <div class="documentation-section-subtitle-container">
+          <span class="documentation-features-section-title">React Example</span>
+        </div>
+        <div class="documentation-section-content">
+          <div class="documentation-intro-text-container">
+            <span class="features-intro-text">
+              Use <code>DynamicGradient</code> inside a React component with <code>useEffect</code>.
+            </span>
+          </div>
+
+          <div class="documentation-code-wrapper">
+            <div class="documentation-code-container">
+              <div class="line-numbers" aria-hidden="true"></div>
+              <pre><code class="language-js">
+        <span class="code-line"><span class="token keyword">import</span> <span class="token class-name">DynamicGradient</span> <span class="token keyword">from</span> <span class="token string">"dynamic-gradient"</span>;</span>
+        <span class="code-line"><span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token class-name">useEffect</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span>;</span>
+
+        <span class="code-line"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Hero</span>() {</span>
+        <span class="code-line">  <span class="token function">useEffect</span>(() =&gt; {</span>
+        <span class="code-line">    <span class="token keyword">const</span> <span class="token constant">gradient</span> = <span class="token class-name">DynamicGradient</span>.<span class="token method">init</span>(<span class="token string">"#hero"</span>, {</span>
+        <span class="code-line">      <span class="token property">colors</span>: [<span class="token string">"#ff7e5f"</span>, <span class="token string">"#feb47b"</span>],</span>
+        <span class="code-line">    });</span>
+        <span class="code-line">    <span class="token keyword">return</span> () =&gt; <span class="token constant">gradient</span>.<span class="token method">destroy</span>();</span>
+        <span class="code-line">  }, []);</span>
+        <span class="code-line">  <span class="token keyword">return</span> &lt;<span class="token tag">div</span> <span class="token attr-name">id</span>=<span class="token attr-value">"hero"</span> <span class="token attr-name">style</span>=<span class="token attr-value">{"{ height: 300 }"}</span> /&gt;;</span>
+        <span class="code-line">}</span>
+      </code></pre>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="Vue-example-section" class="documentation-section">
+        <div class="documentation-section-subtitle-container">
+          <span class="documentation-features-section-title">Vue Example</span>
+        </div>
+        <div class="documentation-section-content">
+          <div class="documentation-intro-text-container">
+            <span class="features-intro-text">
+              Use <code>onMounted</code> and <code>onUnmounted</code> to manage the gradient lifecycle.
+            </span>
+          </div>
+
+          <div class="documentation-code-wrapper">
+            <div class="documentation-code-container">
+              <div class="line-numbers" aria-hidden="true"></div>
+              <pre><code class="language-js">
+        <span class="code-line"><span class="token keyword">import</span> <span class="token class-name">DynamicGradient</span> <span class="token keyword">from</span> <span class="token string">"dynamic-gradient"</span>;</span>
+        <span class="code-line"><span class="token keyword">import</span> { <span class="token function">onMounted</span>, <span class="token function">onUnmounted</span> } from <span class="token string">"vue"</span>;</span>
+
+        <span class="code-line"><span class="token keyword">export</span> <span class="token keyword">default</span> {</span>
+        <span class="code-line">  <span class="token function">setup</span>() {</span>
+        <span class="code-line">    <span class="token keyword">let</span> gradient;</span>
+        <span class="code-line">    <span class="token function">onMounted</span>(() =&gt; {</span>
+        <span class="code-line">      gradient = <span class="token class-name">DynamicGradient</span>.<span class="token method">init</span>(<span class="token string">"#hero"</span>, {</span>
+        <span class="code-line">        colors: [<span class="token string">"#ff7e5f"</span>, <span class="token string">"#feb47b"</span>],</span>
+        <span class="code-line">      });</span>
+        <span class="code-line">    });</span>
+        <span class="code-line">    <span class="token function">onUnmounted</span>(() =&gt; gradient.<span class="token method">destroy</span>());</span>
+        <span class="code-line">  },</span>
+        <span class="code-line">};</span>
+      </code></pre>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="Angular-example-section" class="documentation-section">
+        <div class="documentation-section-subtitle-container">
+          <span class="documentation-features-section-title">Angular Example</span>
+        </div>
+        <div class="documentation-section-content">
+          <div class="documentation-intro-text-container">
+            <span class="features-intro-text">
+              Manage the gradient in <code>ngAfterViewInit</code> and clean up in <code>ngOnDestroy</code>.
+            </span>
+          </div>
+
+          <div class="documentation-code-wrapper">
+            <div class="documentation-code-container">
+              <div class="line-numbers" aria-hidden="true"></div>
+              <pre><code class="language-ts">
+        <span class="code-line"><span class="token keyword">import</span> { Component, AfterViewInit, OnDestroy } from <span class="token string">'@angular/core'</span>;</span>
+        <span class="code-line"><span class="token keyword">import</span> <span class="token class-name">DynamicGradient</span> from <span class="token string">'dynamic-gradient'</span>;</span>
+
+        <span class="code-line">@Component({</span>
+        <span class="code-line">  selector: <span class="token string">'app-hero'</span>,</span>
+        <span class="code-line">  template: <span class="token string">'&lt;div id="hero" style="height:300px"&gt;&lt;/div&gt;'</span></span>
+        <span class="code-line">})</span>
+        <span class="code-line"><span class="token keyword">export</span> <span class="token keyword">class</span> HeroComponent <span class="token keyword">implements</span> AfterViewInit, OnDestroy {</span>
+        <span class="code-line">  private gradient: any;</span>
+        <span class="code-line">  ngAfterViewInit() {</span>
+        <span class="code-line">    this.gradient = DynamicGradient.init('#hero', { colors: ['#ff7e5f', '#feb47b'] });</span>
+        <span class="code-line">  }</span>
+        <span class="code-line">  ngOnDestroy() {</span>
+        <span class="code-line">    this.gradient.destroy();</span>
+        <span class="code-line">  }</span>
+        <span class="code-line">}</span>
+      </code></pre>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="API-reference-section" class="documentation-section">
+          <div class="documentation-section-subtitle-container">
+            <span class="documentation-features-section-title">API Reference</span>
+          </div>
+          <div class="documentation-section-content">
+            <div class="documentation-intro-text-container">
+              
+              <span class="features-intro-text">
+                <code>DynamicGradient.init(target, options)</code> Initialize a gradient on a DOM element.
+              </span>
+            </div>
+            <div class="api-table-container">
+      <table class="api-table">
+        <thead id="thead-gradient">
+          <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>type</code></td>
+            <td><code>"linear" | "radial"</code></td>
+            <td><code>"linear"</code></td>
+            <td>Defines the gradient type.</td>
+          </tr>
+          <tr>
+            <td><code>direction</code></td>
+            <td><code>string</code></td>
+            <td>—</td>
+            <td>CSS gradient direction (e.g., <code>"to right"</code>, <code>"45deg"</code>).</td>
+          </tr>
+          <tr>
+            <td><code>colors</code></td>
+            <td><code>string[]</code></td>
+            <td>—</td>
+            <td>Array of color hex values.</td>
+          </tr>
+          <tr>
+            <td><code>transitionDuration</code></td>
+            <td><code>number</code></td>
+            <td><code>1000</code></td>
+            <td>Transition duration in milliseconds.</td>
+          </tr>
+          <tr>
+            <td><code>schedule</code></td>
+            <td><code>{ time: string, colors: string[] }[]</code></td>
+            <td>—</td>
+            <td>Optional array of time-based gradient schedules (<code>"HH:MM"</code>).</td>
+          </tr>
+          <tr>
+            <td><code>textClip</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>Applies gradient as <code>background-clip</code> for text.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+            <div class="documentation-intro-text-container">
+              
+              <span class="features-intro-text">
+                <code>DynamicGradient.triggerEffect(applyColors, hue, duration)</code> Trigger effects on a gradient Initialized.
+              </span>
+            </div>
+            <div class="api-table-container">
+      <table class="api-table">
+        <thead id="thead-gradient-2">
+          <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>applyColors</code></td>
+            <td><code>["#hex" , "#hex"]</code></td>
+            <td><code>[""]</code></td>
+            <td>Optional apply array of #hex to compose the gradient overlay.</td>
+          </tr>
+          <tr>
+            <td><code>hue</code></td>
+            <td><code>"gold" | "silver" | "black" | "white" | "#hex" </code></td>
+            <td><code>"white"</code></td>
+            <td>Default gradient effect when no applyColors is passed.</td>
+          </tr>
+          <tr>
+            <td><code>duration</code></td>
+            <td><code>number</code></td>
+            <td><code>inherit from init()</code></td>
+            <td>Set transition effect duration.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+            <div class="documentation-intro-text-container">
+              
+              <span class="features-intro-text">
+                <code>DynamicGradient.persistEffect(applyColors, duration )</code> Persist a gradient effect on a Initialized gradient.
+              </span>
+            </div>
+            <div class="api-table-container">
+      <table class="api-table">
+        <thead id="thead-gradient-3">
+          <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>applyColors</code></td>
+            <td><code>["#hex" , "#hex"]</code></td>
+            <td><code>[""]</code></td>
+            <td>Optional apply array of #hex to compose the gradient overlay.</td>
+          </tr>
+          <tr>
+            <td><code>duration</code></td>
+            <td><code>number</code></td>
+            <td><code>inherit from init()</code></td>
+            <td>Set transition effect duration.</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+            
+              
+            </div>
+      </section>
+    </div>
+</section>

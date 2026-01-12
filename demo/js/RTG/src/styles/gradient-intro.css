@@ -1,0 +1,139 @@
+#gradient-title,
+.title-container {
+  background: inherit; /* inherit gradient from DynamicGradient */
+  -webkit-text-fill-color: transparent;
+  background-clip: text !important;
+  color: transparent;
+  font-size: 70px;
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-shadow: 0px 2.45px 1.15px rgba(26, 26, 26, 0.2);
+}
+
+.title-container {
+  margin: auto;
+  max-width: 650px;
+}
+
+.hero-section {
+  text-align: center;
+  position: relative;
+  padding-top: 20rem;
+  z-index: 22;
+}
+
+.tagline {
+  font-size: large;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.gradient-show-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+  margin: 0 2rem;
+  gap: 2rem;
+  justify-content: center;
+}
+.gradient-show-container div {
+  border-radius: 50%;
+}
+
+.gradient-sphere {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  width: 75px;
+  height: 75px;
+}
+
+.intro-section {
+  display: flex;
+  flex-direction: row; /* default: text left, cards right */
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 20px 2rem;
+  text-align: left;
+}
+
+/* Text container */
+.intro-text-container {
+  flex: 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  height: 290px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  border-radius: 8px;
+}
+.intro-text {
+  color: #2a2e34;
+  z-index: 22;
+  position: relative;
+  font-size: small;
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .intro-section {
+    flex-direction: column; /* texto em cima, cards embaixo */
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .gradient-show-container {
+    padding: 6rem 0 8rem;
+  }
+
+  .hero-section {
+    padding-left: 1rem;
+    text-align: center;
+    position: relative;
+
+    z-index: 5;
+  }
+
+  .intro-text-container {
+    max-width: 100%;
+    padding: 1.5rem;
+    border-width: 1.5px;
+    font-size: 1rem;
+    text-align: left; /* mantém legibilidade */
+  }
+}
+@media (max-width: 768px) {
+  .title-container {
+    margin: 10rem 0 0;
+  }
+
+  .gradient-show-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    margin: 1rem 1rem 0;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .hero-section {
+    padding-left: 1rem;
+    text-align: center;
+    position: relative;
+    padding-top: 0;
+    z-index: 5;
+  }
+  .intro-section {
+    flex-direction: column; /* stack: text above cards */
+    align-items: center;
+    text-align: center;
+    padding: 20px 1rem;
+  }
+
+  .intro-text-container {
+    max-width: 768px;
+    min-width: unset;
+  }
+}

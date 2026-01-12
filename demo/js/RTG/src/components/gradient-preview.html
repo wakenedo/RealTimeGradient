@@ -1,0 +1,59 @@
+   <!-- Scheduler Panel -->
+    <section id="gradient-preview" class="gradient-preview-container">
+      
+      <div class="preview-container">
+        <div class="preview-section-title-container">
+         <span id="gradient-title-4" class="features-section-title"> Preview</span>
+       </div>
+       <div id="preview-divider" class="title-divider"></div>
+       
+       
+       <section class="preview-section">
+         <!-- Background Gradient -->
+         <div class="toolbar-container">
+   
+   
+           <div class="toolbar">
+                 <label for="time-slider"
+                   >Virtual time: <span id="time-readout">--:--</span></label
+                 >
+                 <input id="time-slider" type="range" min="0" max="24" step="0.01" />
+                 <button id="now-btn" class="btn">Now</button>
+               </div>
+         </div>
+         <div class="controls-panel">
+           <h3>Gradient Scheduler</h3>
+           <div id="palette-sections"></div>
+           <button id="add-section" class="btn">Add Section</button>
+           <hr />
+           <label>
+             Gradient type:
+             <select id="gradient-type">
+               <option value="linear">Linear</option>
+               <option value="radial">Radial</option>
+             </select>
+           </label>
+           <label>
+             Linear direction (deg):
+             <input
+               type="number"
+               id="gradient-angle"
+               value="90"
+               min="0"
+               max="360"
+             />
+           </label>
+            <footer>
+           <div class="watermark-container">
+             <a class="watermark" href="https://github.com/wakenedo">@wakenedo</a>
+           </div>
+         </footer>
+       </main>
+         </div>
+         <div id="gradient-container"></div>
+
+       </section>
+
+   
+      </div>
+    </section>

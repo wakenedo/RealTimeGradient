@@ -1,0 +1,27 @@
+{
+  "name": "real-time-gradient",
+  "version": "1.0.0",
+  "description": "A Dynamic Gradient background library.",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "files": [
+    "dist",
+    "styles_modules"
+  ],
+  "keywords": [
+    "background",
+    "gradient",
+    "dynamic",
+    "canvas"
+  ],
+  "author": "wakenedo",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.4.19",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}

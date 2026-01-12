@@ -1,0 +1,202 @@
+#gradient-title-2,
+.text-features-section-title-container {
+  display: inline-block;
+  background: inherit; /* inherit gradient from DynamicGradient */
+  -webkit-text-fill-color: transparent;
+  background-clip: text !important;
+  color: transparent;
+  font-size: 70px;
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-shadow: 0px 2.45px 1.15px rgba(26, 26, 26, 0.2);
+}
+
+.text-features-section-title-container {
+  margin: 2.5rem 0 0 2rem;
+}
+
+.text-features-section {
+  display: flex;
+  flex-direction: row-reverse; /* default: text left, cards right */
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 20px 2rem;
+  position: relative;
+  z-index: 5;
+  text-align: left;
+}
+
+/* Text container */
+.text-features-intro-text-container {
+  flex: 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  max-width: 700px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  height: 675px;
+  border-radius: 8px;
+}
+
+/* Cards container */
+.text-features-intro-cards-container {
+  flex: 1;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  perspective: 1000px;
+  height: 675px;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.text-feature-card {
+  border-radius: 16px;
+  padding: 2rem;
+  background: rgba(240, 242, 255, 0.7);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect to "lift" card */
+.text-feature-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  z-index: 3;
+}
+
+#text-gradient-example-1,
+#text-gradient-example-2,
+#text-gradient-example-3,
+.text-example-container {
+  display: inline-block;
+  font-size: 2em;
+  background: inherit; /* inherit gradient from DynamicGradient */
+  -webkit-text-fill-color: transparent;
+  background-clip: text !important;
+  color: transparent;
+  font-weight: 900;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-shadow: 0px 2.45px 1.15px rgba(26, 26, 26, 0.2);
+}
+.text-example-container span {
+  font-size: 2em;
+}
+
+/* Ajustes para telas médias */
+@media (min-width: 769px) and (max-width: 1200px) {
+  #text-gradient-example-1,
+  #text-gradient-example-2,
+  #text-gradient-example-3,
+  .text-example-container {
+    font-size: 3rem;
+  }
+  .text-example-container span {
+    font-size: 3rem;
+  }
+  .text-features-section {
+    flex-direction: column; /* texto em cima, cards embaixo */
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .text-features-intro-text-container {
+    max-width: 100%;
+    padding: 1.5rem;
+    border-width: 1.5px;
+    font-size: 1rem;
+    text-align: left; /* mantém legibilidade */
+  }
+
+  .text-features-intro-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+    min-height: 300px;
+  }
+
+  /* Reposiciona os 3 cards para ficarem centrados em arco menor */
+
+  #text-card-text {
+    transform: rotate(8deg) translateX(120px) translateY(15px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #text-gradient-example-1,
+  #text-gradient-example-2,
+  #text-gradient-example-3,
+  .text-example-container {
+    font-size: 2rem;
+  }
+  .text-example-container span {
+    font-size: 2rem;
+  }
+
+  #gradient-title-2 {
+    font-size: 2rem;
+  }
+
+  .text-features-section-title-container {
+    font-size: 2em;
+    font-style: italic;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    z-index: 20;
+    margin: 4rem 1rem 0;
+  }
+  .text-features-section-title-container span {
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    z-index: 20;
+  }
+  .text-features-section {
+    flex-direction: column; /* stack: text above cards */
+    align-items: center;
+    text-align: center;
+    padding: 20px 1rem;
+  }
+
+  .features-intro-text-container,
+  .features-intro-cards-container {
+    max-width: 768px;
+    min-width: unset;
+  }
+
+  .text-features-intro-cards-container {
+    height: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: none;
+  }
+
+  .text-feature-card {
+    position: relative;
+    transform: none !important;
+    margin: 10px 0;
+    width: 90%;
+    max-width: 320px;
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,209 @@
+/* Container layout: gutter + code using CSS Grid */
+.documentation-code-container {
+  --gutter-width: 3.6rem; /* adjust for more digits */
+  display: grid;
+  grid-template-columns: var(--gutter-width) 1fr;
+  gap: 0;
+  background: #1e1e1e;
+  border: 1px solid #2d2d2d;
+  border-radius: 8px;
+  overflow: auto; /* allow horizontal scroll */
+  font-family: "Fira Code", "Consolas", "Courier New", monospace;
+  font-size: 0.95rem;
+  color: #d4d4d4;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+/* Gutter */
+.documentation-code-container .line-numbers {
+  background: #252526;
+  border-right: 1px solid #333;
+  padding: 0.95rem 0.6rem 0.8rem 0.6rem;
+  user-select: none;
+  text-align: right;
+  position: sticky;
+  left: 0;
+  top: 0; /* keeps gutter visible when horizontally scrolling container */
+  z-index: 2;
+}
+
+/* each number line */
+.documentation-code-container .line-numbers span {
+  display: block;
+  line-height: 1.54rem;
+  color: #858585;
+  font-size: 0.7rem;
+  padding-right: 0.5rem;
+}
+
+/* Code area */
+.documentation-code-container pre {
+  padding: 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+.documentation-code-container code {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 1rem;
+  white-space: pre; /* keeps code formatting; switch to pre-wrap if you prefer wraps */
+  tab-size: 2;
+  min-width: 0; /* for proper overflow in flex/grid */
+}
+
+/* Optional current-line highlight (add .current-line to a .code-line) */
+.documentation-code-container .code-line.current-line {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0)
+  );
+  border-left: 3px solid rgba(8, 120, 170, 0.9);
+  padding-left: calc(1rem - 3px); /* keep text aligned when border added */
+}
+
+.code-line {
+  line-height: 1.55rem;
+}
+
+/* Syntax token colors (your existing palette) */
+.documentation-code-container .token.tag {
+  color: #569cd6;
+}
+.documentation-code-container .token.attr-name {
+  color: #9cdcfe;
+}
+.documentation-code-container .token.attr-value {
+  color: #ce9178;
+}
+.documentation-code-container .token.keyword {
+  color: #c586c0;
+}
+.documentation-code-container .token.string {
+  color: #ce9178;
+}
+.documentation-code-container .token.number {
+  color: #b5cea8;
+}
+.documentation-code-container .token.function {
+  color: #dcdcaa;
+}
+.documentation-code-container .token.comment {
+  color: #6a9955;
+  font-style: italic;
+}
+
+/* ==== JavaScript specific tokens ==== */
+.documentation-code-container .token.keyword {
+  color: #569cd6; /* import, const, let, if, return */
+}
+
+.documentation-code-container .token.function {
+  color: #dcdcaa; /* function names, methods */
+}
+
+.documentation-code-container .token.class-name {
+  color: #4ec9b0; /* DynamicGradient, constructors */
+}
+
+.documentation-code-container .token.property {
+  color: #9cdcfe; /* object keys: type, direction, colors */
+}
+
+.documentation-code-container .token.method {
+  color: #dcdcaa; /* init(), stopEffects(), triggerEffect() */
+}
+
+.documentation-code-container .token.string {
+  color: #ce9178; /* "to right", "#ff7e5f" */
+}
+
+.documentation-code-container .token.number {
+  color: #b5cea8; /* 1500, 2000 */
+}
+
+.documentation-code-container .token.boolean {
+  color: #569cd6; /* true, false */
+}
+
+.documentation-code-container .token.operator {
+  color: #d4d4d4; /* =, =>, +, - */
+}
+
+.documentation-code-container .token.punctuation {
+  color: #d4d4d4; /* {}, (), [] */
+}
+
+.documentation-code-container .token.comment {
+  color: #6a9955;
+  font-style: italic;
+}
+.documentation-code-container .token.constant,
+.documentation-code-container .token.variable {
+  color: #4fc1ff;
+}
+
+/* TypeScript / interface support if needed */
+.documentation-code-container .token.type {
+  color: #4ec9b0; /* interface names, types */
+}
+
+.documentation-code-container .code-line:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.documentation-code-container .code-line.active {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Copy button */
+.copy-btn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #d4d4d4;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  z-index: 3;
+}
+.copy-btn:active {
+  transform: translateY(1px);
+}
+
+/* Scrollbar (optional) */
+.documentation-code-container::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.documentation-code-container::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+.documentation-code-container::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .documentation-code-container .line-numbers {
+    padding: 2.56rem 0.6rem 0.8rem 0.6rem;
+  }
+
+  .documentation-code-container {
+    grid-template-columns: 2.8rem 1fr;
+  }
+  .documentation-code-container pre {
+    margin-block: 2.5rem;
+  }
+  .copy-btn {
+    top: 6px;
+    right: 6px;
+    padding: 5px 8px;
+  }
+}
