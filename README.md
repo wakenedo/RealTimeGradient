@@ -168,7 +168,7 @@ gradient.setGradient({ colors: hues.forest });
 
 Or:
 
-````js
+```js
 gradient.triggerEffect({ hue: "gold", duration: 2000 });
 ```
 
@@ -176,7 +176,7 @@ gradient.triggerEffect({ hue: "gold", duration: 2000 });
 
 ```ts
 // index.d.ts
-declare module "dynamic-gradient" {
+declare module "real-time-gradient" {
   type GradientType = "linear" | "radial";
 
   type HuePreset = "white" | "black" | "gold" | "silver" | string;
@@ -204,7 +204,7 @@ declare module "dynamic-gradient" {
     hue?: HuePreset;
   }
 
-  class DynamicGradient {
+  export class DynamicGradient {
     constructor(container: string | HTMLElement, options?: GradientOptions);
 
     static init(
@@ -227,11 +227,8 @@ declare module "dynamic-gradient" {
     stopEffects(): void;
     destroy(): void;
   }
-
-  export default DynamicGradient;
 }
 ```
-````
 
 ## 📄 License
 
