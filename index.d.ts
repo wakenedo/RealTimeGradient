@@ -1,6 +1,6 @@
 // index.d.ts
 
-declare module "dynamic-gradient" {
+declare module "real-time-gradient" {
   type GradientType = "linear" | "radial";
 
   type HuePreset = "white" | "black" | "gold" | "silver" | string;
@@ -26,7 +26,7 @@ declare module "dynamic-gradient" {
     hue?: HuePreset;
   }
 
-  class DynamicGradient {
+  export class DynamicGradient {
     constructor(container: string | HTMLElement, options?: GradientOptions);
 
     static init(
@@ -48,6 +48,4 @@ declare module "dynamic-gradient" {
 
     stopEffects(): void;
   }
-
-  export default DynamicGradient;
 }
