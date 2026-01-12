@@ -73,7 +73,7 @@
   color: #2a2e34;
   z-index: 22;
   position: relative;
-  font-size: small;
+  font-size: medium;
 }
 
 @media (min-width: 769px) and (max-width: 1200px) {
@@ -107,6 +107,12 @@
 @media (max-width: 768px) {
   .title-container {
     margin: 10rem 0 0;
+  }
+  .intro-text {
+    color: #2a2e34;
+    z-index: 22;
+    position: relative;
+    font-size: small;
   }
 
   .gradient-show-container {
