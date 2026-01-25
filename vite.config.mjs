@@ -5,7 +5,7 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   build: {
     lib: {
-      entry: "src/index.js",
+      entry: "src/index.ts",
       name: "RealTimeGradient",
       formats: ["es", "umd"],
       fileName: (format) => `index.${format}.js`,
