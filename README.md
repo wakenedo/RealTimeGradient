@@ -176,56 +176,69 @@ gradient.triggerEffect({ hue: "gold", duration: 2000 });
 
 ```ts
 // index.d.ts
-declare module "real-time-gradient" {
-  type GradientType = "linear" | "radial";
+export type GradientType = "linear" | "radial";
 
-  type HuePreset = "white" | "black" | "gold" | "silver" | string;
-  // string allows custom hex codes "#RRGGBB"
+export type HuePreset = "white" | "black" | "gold" | "silver" | string;
 
-  interface ScheduleEntry {
-    time: string; // "HH:MM" in 24h format
-    colors: string[]; // array of CSS color values
+export interface ScheduleEntry {
+  time: string;
+  colors: string[];
+}
+
+export interface GradientOptions {
+  type?: GradientType;
+  direction?: string;
+  colors?: string[];
+  transitionDuration?: number;
+  schedule?: ScheduleEntry[];
+  textClip?: boolean;
+}
+
+export interface EffectOptions {
+  applyColors?: string[];
+  duration?: number;
+  hue?: HuePreset;
+}
+
+export class DynamicGradient {
+  private container: HTMLElement;
+  private options: GradientOptions;
+
+  constructor(container: string | HTMLElement, options: GradientOptions = {}) {
+    this.container =
+      typeof container === "string"
+        ? (document.querySelector(container) as HTMLElement)
+        : container;
+
+    this.options = options;
+  }
+
+  static init(container: string | HTMLElement, options?: GradientOptions) {
+    return new DynamicGradient(container, options);
+  }
+
+  setGradient(options: {
+    colors: string[];
     type?: GradientType;
     direction?: string;
+  }): void {
+    // implementation
   }
 
-  interface GradientOptions {
-    type?: GradientType;
-    direction?: string;
-    colors?: string[];
-    transitionDuration?: number;
-    schedule?: ScheduleEntry[];
-    textClip?: boolean;
+  schedule(entries: ScheduleEntry[]): void {
+    // implementation
   }
 
-  interface EffectOptions {
-    applyColors?: string[];
-    duration?: number;
-    hue?: HuePreset;
+  triggerEffect(options?: EffectOptions): void {
+    // implementation
   }
 
-  export class DynamicGradient {
-    constructor(container: string | HTMLElement, options?: GradientOptions);
+  persistEffect(colors: string[], duration?: number): void {
+    // implementation
+  }
 
-    static init(
-      container: string | HTMLElement,
-      options?: GradientOptions
-    ): DynamicGradient;
-
-    setGradient(options: {
-      colors: string[];
-      type?: GradientType;
-      direction?: string;
-    }): void;
-
-    schedule(entries: ScheduleEntry[]): void;
-
-    triggerEffect(options?: EffectOptions): void;
-
-    persistEffect(colors: string[], duration?: number): void;
-
-    stopEffects(): void;
-    destroy(): void;
+  stopEffects(): void {
+    // implementation
   }
 }
 ```
