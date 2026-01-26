@@ -58,6 +58,7 @@ function createTextOverlay(container, gradient, duration) {
   requestAnimationFrame(() => {
     overlay.style.opacity = "1";
   });
+  return overlay;
 }
 
 function ensureTextClipBuffers(container, duration) {
@@ -110,7 +111,7 @@ function ensureTextClipBuffers(container, duration) {
 function getCurrentTimeString() {
   const now = new Date();
   return `${String(now.getHours()).padStart(2, "0")}:${String(
-    now.getMinutes()
+    now.getMinutes(),
   ).padStart(2, "0")}`;
 }
 
@@ -172,7 +173,7 @@ class DynamicGradient {
     colors = this.colors,
     type = this.type,
     direction = this.direction,
-    withTransition = true
+    withTransition = true,
   ) {
     const newGradient = buildGradient(colors, type, direction);
     const currentGradient = this.container.style.background;
@@ -183,9 +184,9 @@ class DynamicGradient {
       const textGradient = createTextOverlay(
         this.container,
         newGradient,
-        this.duration
+        this.transitionDuration,
       );
-      this.container.style.background = textGradient;
+
       this.container.style.fontWeight = "inherit";
     } else {
       if (withTransition) {
@@ -196,7 +197,7 @@ class DynamicGradient {
         this.transitionOverlay = createOverlay(
           this.container,
           newGradient,
-          this.transitionDuration
+          this.transitionDuration,
         );
         requestAnimationFrame(() => {
           this.transitionOverlay.style.opacity = "1";
@@ -253,7 +254,7 @@ class DynamicGradient {
           : buildGradient(
               [...this.colors, HUE_PRESETS[hue] || hueColor],
               this.type,
-              this.direction
+              this.direction,
             );
 
         incoming.style.background = gradientTarget;
@@ -282,7 +283,7 @@ class DynamicGradient {
               applyColors || this.colors,
               this.type,
               this.direction,
-              false
+              false,
             );
             a.style.opacity = "0";
             b.style.opacity = "0";
@@ -297,7 +298,7 @@ class DynamicGradient {
       this.effectOverlay = createOverlay(
         this.container,
         gradientTarget,
-        duration
+        duration,
       );
     }
 
@@ -330,13 +331,13 @@ class DynamicGradient {
     const targetGradient = buildGradient(
       applyColors,
       this.type,
-      this.direction
+      this.direction,
     );
     if (this.textClip) {
       const textOverlay = createTextOverlay(
         this.container,
         targetGradient,
-        duration
+        duration,
       );
       requestAnimationFrame(() => {
         textOverlay.style.opacity = "1";
