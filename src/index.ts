@@ -1,10 +1,13 @@
-export type GradientType = "linear" | "radial";
+import DynamicGradientRuntime from "./RealTimeGradient/realTimeGradient.js";
 
-export type HuePreset = "white" | "black" | "gold" | "silver" | string;
+// ---- public types ----
+export type GradientType = "linear" | "radial";
 
 export interface ScheduleEntry {
   time: string;
   colors: string[];
+  type?: GradientType;
+  direction?: string;
 }
 
 export interface GradientOptions {
@@ -19,47 +22,12 @@ export interface GradientOptions {
 export interface EffectOptions {
   applyColors?: string[];
   duration?: number;
-  hue?: HuePreset;
+  hue?: "white" | "black" | "gold" | "silver" | string;
+  loop?: boolean;
 }
 
-export class DynamicGradient {
-  private container: HTMLElement;
-  private options: GradientOptions;
-
-  constructor(container: string | HTMLElement, options: GradientOptions = {}) {
-    this.container =
-      typeof container === "string"
-        ? (document.querySelector(container) as HTMLElement)
-        : container;
-
-    this.options = options;
-  }
-
-  static init(container: string | HTMLElement, options?: GradientOptions) {
-    return new DynamicGradient(container, options);
-  }
-
-  setGradient(options: {
-    colors: string[];
-    type?: GradientType;
-    direction?: string;
-  }): void {
-    // implementation
-  }
-
-  schedule(entries: ScheduleEntry[]): void {
-    // implementation
-  }
-
-  triggerEffect(options?: EffectOptions): void {
-    // implementation
-  }
-
-  persistEffect(colors: string[], duration?: number): void {
-    // implementation
-  }
-
-  stopEffects(): void {
-    // implementation
-  }
-}
+// 🔗 attach types to runtime symbol
+export const DynamicGradient = DynamicGradientRuntime as unknown as {
+  new (container: string | HTMLElement, options?: GradientOptions): any;
+  init(container: string | HTMLElement, options?: GradientOptions): any;
+};
