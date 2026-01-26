@@ -1,29 +1,20 @@
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import path from "path";
 
-// Library mode
 export default defineConfig({
   build: {
     lib: {
-      entry: "src/index.ts",
+      entry: path.resolve(__dirname, "src/index.ts"), // ✅ JS only
       name: "RealTimeGradient",
       formats: ["es", "umd"],
       fileName: (format) => `index.${format}.js`,
-    },
-    outDir: "dist",
-    emptyOutDir: true,
-    rollupOptions: {
-      // Mark external deps so they’re not bundled
-      external: [],
-      output: {
-        globals: {},
-      },
     },
   },
   plugins: [
     dts({
       entryRoot: "src",
-      outputDir: "dist",
+      outDir: "dist",
       insertTypesEntry: true,
     }),
   ],
