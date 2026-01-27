@@ -1,6 +1,6 @@
 {
   "name": "real-time-gradient",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Dynamic Gradient background library.",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
